@@ -13,7 +13,7 @@ export default function InscriptionPage() {
         }
       } >
         <Typography variant="h4" sx={{textAlign:"center"}}>Inscription</Typography> <br />
-        <form action="" method="post">
+        <form action="#" method="post">
           <Stack flexDirection={"column"} gap={2}>
 
             <TextField id="outlined-basic" label="Veuillez saisir votre nom" variant="outlined" />
