@@ -6,7 +6,7 @@ const InscriptionPage = () => {
   const { handleSubmit, register, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data, errors);
   };
 
   return (
