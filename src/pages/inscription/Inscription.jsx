@@ -1,20 +1,25 @@
 import React from "react";
 import { Button, TextField, Box, Stack, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from 'react-hot-toast';
+import toast , {Toaster}from 'react-hot-toast';
+import axios from "axios";
 
 const InscriptionPage = () => {
   const { handleSubmit, register, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    if(data.motDePasse !== data.motDePasseConfirmation){
-      console.log(data)
+    if (data.motDePasse !== data.motDePasseConfirmation) {
       toast.error("Les mots de passe ne correspondent pas");
-    }else{
-      console.log(data);
-      toast.success("Inscription Réussie");
+    } else {
+      axios.post("http://localhost:3000/Utilisateurs", data)
+        .then((res) => {
+          console.log(res);
+          toast.success("Inscription réussie");
+        }).catch((err) => {
+          console.log(err);
+          toast.error("Erreur lors de l'inscription");
+        });
     }
-
   };
 
   return (
@@ -49,10 +54,12 @@ const InscriptionPage = () => {
               label="Veuillez saisir votre email"
               type="email"
               variant="outlined"
-
               {...register("mailUtilisateur", {
-                required: "Entrez votre addresse email",
-                pattern: "^([a-zA-Z0-9_\-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,5})$",
+                required: "Entrez votre adresse email",
+                pattern: {
+                  value: /^([a-zA-Z0-9_\-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,5})$/,
+                  message: "Veuillez saisir une adresse email valide",
+                },
               })}
             />
             <TextField
@@ -87,6 +94,7 @@ const InscriptionPage = () => {
           </Stack>
         </form>
       </Box>
+      <Toaster />
     </Stack>
   );
 };

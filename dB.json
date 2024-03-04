@@ -1,15 +1,43 @@
 {
-    "Utilisateurs": [
-       
-    ],
-    "publications": [
-        {
-            "id" : 1,
-            "titre": "titre",
-            "contenu" : "contenu",
-            "date" : "2024-03-01",
-            "utilisateurs" : [1]
-
-        }
-    ]
+  "Utilisateurs": [
+    {
+      "id": "748b",
+      "nomUtilisateur": "eurinhash",
+      "mailUtilisateur": "eurinhash@gmail.com",
+      "motDePasse": "P=YwyQ7J}FbuZ>t",
+      "motDePasseConfirmation": "P=YwyQ7J}FbuZ>t"
+    },
+    {
+      "id": "8e74",
+      "nomUtilisateur": "eurinhash",
+      "mailUtilisateur": "eurinhash@gmail.com",
+      "motDePasse": "P=YwyQ7J}FbuZ>t",
+      "motDePasseConfirmation": "P=YwyQ7J}FbuZ>t"
+    },
+    {
+      "id": "e912",
+      "nomUtilisateur": "eurinhash",
+      "mailUtilisateur": "eurinhash@gmail.com",
+      "motDePasse": "P=YwyQ7J}FbuZ>t",
+      "motDePasseConfirmation": "P=YwyQ7J}FbuZ>t"
+    },
+    {
+      "id": "14ba",
+      "nomUtilisateur": "eurinhash",
+      "mailUtilisateur": "eurinhash@gmail.com",
+      "motDePasse": "P=YwyQ7J}FbuZ>0",
+      "motDePasseConfirmation": "P=YwyQ7J}FbuZ>0"
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "titre": "titre",
+      "contenu": "contenu",
+      "date": "2024-03-01",
+      "utilisateurs": [
+        1
+      ]
+    }
+  ]
 }
