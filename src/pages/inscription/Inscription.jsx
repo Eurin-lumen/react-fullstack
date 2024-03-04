@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Button, TextField, Box, Stack, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -5,21 +6,23 @@ import toast , {Toaster}from 'react-hot-toast';
 import axios from "axios";
 
 const InscriptionPage = () => {
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  // eslint-disable-next-line no-unused-vars
+  const { handleSubmit, register} = useForm();
 
   const onSubmit = (data) => {
-    if (data.motDePasse !== data.motDePasseConfirmation) {
-      toast.error("Les mots de passe ne correspondent pas");
-    } else {
-      axios.post("http://localhost:3000/Utilisateurs", data)
+    data.motDePasseConfirmation = undefined;
+    data.motDePasseConfirmation = undefined;
+    data.motDePasse = undefined;
+    data.motDePasse = undefined;
+    // eslint-disable-next-line no-constant-condition
+    axios.post("http://localhost:3000/Utilisateurs", data)
         .then((res) => {
           console.log(res);
           toast.success("Inscription réussie");
         }).catch((err) => {
-          console.log(err);
-          toast.error("Erreur lors de l'inscription");
-        });
-    }
+      console.log(err);
+      toast.error("Erreur lors de l'inscription");
+    });
   };
 
   return (
@@ -57,7 +60,7 @@ const InscriptionPage = () => {
               {...register("mailUtilisateur", {
                 required: "Entrez votre adresse email",
                 pattern: {
-                  value: /^([a-zA-Z0-9_\-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,5})$/,
+                  value: /^([a-zA-Z0-9_-]+)@([a-zA-Z0-9_\\-]+)\.([a-zA-Z]{2,5})$/,
                   message: "Veuillez saisir une adresse email valide",
                 },
               })}
@@ -89,6 +92,7 @@ const InscriptionPage = () => {
               })}
             />
             <Button variant="contained" type="submit">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               S'inscrire
             </Button>
           </Stack>
