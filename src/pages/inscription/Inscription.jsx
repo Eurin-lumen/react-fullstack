@@ -1,12 +1,20 @@
 import React from "react";
 import { Button, TextField, Box, Stack, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 
 const InscriptionPage = () => {
   const { handleSubmit, register, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data, errors);
+    if(data.motDePasse !== data.motDePasseConfirmation){
+      console.log(data)
+      toast.error("Les mots de passe ne correspondent pas");
+    }else{
+      console.log(data);
+      toast.success("Inscription Réussie");
+    }
+
   };
 
   return (
@@ -42,7 +50,7 @@ const InscriptionPage = () => {
               type="email"
               variant="outlined"
 
-              {...register("motDePasse", {
+              {...register("mailUtilisateur", {
                 required: "Entrez votre addresse email",
                 pattern: "^([a-zA-Z0-9_\-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,5})$",
               })}
