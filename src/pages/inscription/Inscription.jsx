@@ -41,6 +41,11 @@ const InscriptionPage = () => {
               label="Veuillez saisir votre email"
               type="email"
               variant="outlined"
+
+              {...register("motDePasse", {
+                required: "Entrez votre addresse email",
+                pattern: "^([a-zA-Z0-9_\-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,5})$",
+              })}
             />
             <TextField
               id="outlined-basic"
